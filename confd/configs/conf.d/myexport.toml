@@ -1,0 +1,6 @@
+[template]
+src = "myexport2.sh.tmpl"
+dest = "/tmp/myexport.sh"
+keys = [
+    "/myapp/database",
+]

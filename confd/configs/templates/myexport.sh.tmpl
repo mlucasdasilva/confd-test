@@ -1,0 +1,3 @@
+#! /bin/bash
+
+export {{range gets "/myapp/database/*"}} database_{{.Key}}={{.Value}}{{end}}

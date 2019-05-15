@@ -1,0 +1,7 @@
+#! /bin/bash
+
+{{ $myconfd := getenv "MY_CONFD_ROOT" }}
+
+{{range gets $myconfd}} 
+export DATABASE{{ toUpper (replace .Key "/" "_" -1)}}={{.Value}}
+{{end}} 

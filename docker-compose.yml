@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+
+ confd:
+  environment:
+     - MYAPP_DATABASE_URL=db.example.com
+     - MYAPP_DATABASE_USER=joao
+     - MY_CONFD_ROOT=/myapp/database/*
+  volumes:
+    - ./confd/configs/conf.d/:/etc/confd/conf.d/
+    - ./confd/configs/templates/:/etc/confd/templates/
+    - ./confd/data/resultado/:/tmp/
+#  entrypoint: /bin/bash
+#  command: confd -onetime -backend env
+  command: confd -backend env
+  image: bndes/confd:0.1
+  build:
+     context: ./
+
+
